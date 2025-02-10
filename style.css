@@ -5,7 +5,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to right, #1e1e2f, #393953);
+    background: url('Photos/HomePage.png') no-repeat center center fixed;
+    background-size: cover;
     color: white;
 }
 
