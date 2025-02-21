@@ -9,6 +9,12 @@ body {
     background-size: cover;
     color: white;
 }
+
+a {
+    text-decoration: none; /* Removes the underline */
+    color: inherit; /* Inherits color from parent */
+}
+
 .main-image {
     width: 100%;
     max-width: 100%;
