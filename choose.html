@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: url('Photos/choosebg.png');
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            height: 100vh;
+            background-size: cover;
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }      
+        .confetti {
+            position: absolute;
+            width: 120px; /* Adjust size for weapons */
+            height: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+
+         .birthday-message {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -48%) scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="birthday-message"> Happy Birthday! </div>
+
+    <script>
+        function createConfetti() {
+            const confetti = document.createElement("div");
+            confetti.classList.add("confetti");
+
+            document.body.appendChild(confetti);
+
+            // Array of weapon image URLs
+            const weapons = [
+                'Photos/weapon1.png', // Replace with actual weapon image URLs
+                'Photos/weapon2.png',
+                'Photos/weapon3.png',
+                'Photos/weapon4.png'
+            ];
+            confetti.style.backgroundImage = `url(${weapons[Math.floor(Math.random() * weapons.length)]})`;
+
+            // Random position
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+
+            // Remove confetti after animation
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+
+        // Create confetti continuously
+        setInterval(createConfetti, 200);
+    </script>
+    
+    
+</body>
+</html>
